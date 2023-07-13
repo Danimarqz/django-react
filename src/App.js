@@ -1,6 +1,12 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import store from "store";
 import { Provider } from "react-redux";
+import Cases from "containers/pages/Cases";
+import Services from "containers/pages/Services";
+import About from "containers/pages/About"; 
+import Careers from "containers/pages/Careers";
+import Blog from "containers/pages/Blog";
+import Contact from "containers/pages/Contact";
 
 import Error404 from "containers/errors/Error404";
 import Home from "containers/pages/Home";
