@@ -3,6 +3,9 @@ import Navbar from "components/navigation/Navbar";
 import Layout from "hocs/layouts/Layout";
 
 function Blog(){
+    useEffect(() =>{
+        windows.scrollTo(0,0)
+    },[])
     return (
         <Layout>
             <Navbar />
