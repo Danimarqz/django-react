@@ -4,6 +4,7 @@ import Header from "components/services/Header";
 import ServicesList from "components/services/ServicesList";
 import Layout from "hocs/layouts/Layout";
 import programming_img from 'assets/img/services/programming.png'
+import { useEffect } from "react";
 
 
 const posts_software = [
@@ -128,7 +129,7 @@ const posts_design = [
 
 function Services(){
     useEffect(() =>{
-        windows.scrollTo(0,0)
+        window.scrollTo(0,0)
     },[])
     return (
         <Layout>

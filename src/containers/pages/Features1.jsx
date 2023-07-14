@@ -1,4 +1,5 @@
 import { CheckIcon } from '@heroicons/react/24/outline'
+import { useEffect } from "react";
 
 const features = [
   {
@@ -19,7 +20,7 @@ const features = [
 
 export default function Example() {
   useEffect(() =>{
-    windows.scrollTo(0,0)
+    window.scrollTo(0,0)
 },[])
   return (
     <div className="bg-white">

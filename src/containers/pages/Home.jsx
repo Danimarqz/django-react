@@ -12,7 +12,7 @@ import { useEffect } from "react";
 
 function Home(){
     useEffect(() =>{
-        windows.scrollTo(0,0)
+        window.scrollTo(0,0)
     },[])
     return (
         <Layout>
