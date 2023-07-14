@@ -10,6 +10,7 @@ import { useEffect } from "react";
 const posts_software = [
     {
       title: 'Boost your conversion rate',
+      index:3,
       img: programming_img,
       href: '#',
       category: { name: 'Article', href: '#' },
@@ -29,6 +30,7 @@ const posts_software = [
     },
     {
       title: 'How to use search engine optimization to drive sales',
+      index:4,
       img: programming_img,
       href: '#',
       category: { name: 'Video', href: '#' },
@@ -48,6 +50,7 @@ const posts_software = [
     },
     {
       title: 'Improve your customer experience',
+      index:5,
       img: programming_img,
       href: '#',
       category: { name: 'Case Study', href: '#' },
@@ -70,6 +73,7 @@ const posts_software = [
 const posts_design = [
     {
       title: 'Boost your conversion rate',
+      index: 0,
       img: programming_img,
       href: '#',
       category: { name: 'Article', href: '#' },
@@ -89,6 +93,7 @@ const posts_design = [
     },
     {
       title: 'How to use search engine optimization to drive sales',
+      index: 1,
       img: programming_img,
       href: '#',
       category: { name: 'Video', href: '#' },
@@ -108,6 +113,7 @@ const posts_design = [
     },
     {
       title: 'Improve your customer experience',
+      index: 2,
       img: programming_img,
       href: '#',
       category: { name: 'Case Study', href: '#' },

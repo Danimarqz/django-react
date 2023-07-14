@@ -1,17 +1,17 @@
 
 
-function ServicesCard ({data, index}) {
+function ServicesCard ({data}) {
     return (
     
         <div 
         onMouseEnter={() =>{
-            const title_element = document.getElementById(index)
+            const title_element = document.getElementById(data.index)
             title_element.classList.add('text-orange-500')
             title_element.classList.remove('text-gray-900')
         
         }}
         onMouseLeave={() =>{
-            const title_element = document.getElementById(index)
+            const title_element = document.getElementById(data.index)
             title_element.classList.remove('text-orange-500')
             title_element.classList.add('text-gray-900')
 
@@ -23,7 +23,7 @@ function ServicesCard ({data, index}) {
                 <p className="text-lg font-regular text-gray-500 pt-4">{data.title}</p>
             </div>
             <div className="absolute bottom-0 left-0 p-8">
-                <h2 id={index} className="items-end text-xl font-semibold text-gray-900 pt-8">Learn more</h2>
+                <h2 id={data.index} className="items-end text-xl font-semibold text-gray-900 pt-8">Learn more</h2>
             </div>
         </div>
     )

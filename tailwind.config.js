@@ -7,6 +7,9 @@ module.exports = {
     extend: {
       colors:{
         "orange-button":'#ff561e'
+      },
+      blur:{
+        "xs": "2.5px"
       }
     },
     boxShadow: {

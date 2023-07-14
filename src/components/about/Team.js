@@ -1,3 +1,4 @@
+import lawyerpic from "assets/img/lawyer2.jpg"
 
 const people = [
     {
@@ -5,6 +6,20 @@ const people = [
       role: 'Front-end Developer',
       imageUrl:
         'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80',
+      twitterUrl: '#',
+      linkedinUrl: '#',
+    },
+    {
+      name: 'Harvey Specter',
+      role: 'Lawyer',
+      imageUrl: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1171&q=80',
+      twitterUrl: '#',
+      linkedinUrl: '#',
+    },
+    {
+      name: 'Mykyta Ryasny',
+      role: 'Back-end Developer',
+      imageUrl: 'https://images.unsplash.com/photo-1523464862212-d6631d073194?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80',
       twitterUrl: '#',
       linkedinUrl: '#',
     },
