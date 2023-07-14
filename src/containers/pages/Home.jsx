@@ -10,6 +10,7 @@ import Navbar from "components/navigation/Navbar";
 import Layout from "hocs/layouts/Layout";
 import { useEffect } from "react";
 
+
 function Home(){
     useEffect(() =>{
         window.scrollTo(0,0)
