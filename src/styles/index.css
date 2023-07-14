@@ -29,3 +29,22 @@ background: #c9c9c9;
 opacity: 10px;
 border-radius: 10px;
 }
+
+.rec.rec-arrow {
+  background-color: #0b1014;
+  color: #eeeeee;
+}
+
+.rec.rec-arrow:hover{
+  background-color: #393b3f;
+}
+
+.rec.rec.rec-arrow:disabled {
+  visibility:hidden;
+}
+
+.rec-carousel-item:focus {
+  outline: none;
+  box-shadow: inset 0 0 1px 1px lightgray;
+  background-color: #eaeaea;
+}
