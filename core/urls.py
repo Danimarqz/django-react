@@ -5,6 +5,8 @@ from django.conf import settings
 from django.views.generic import TemplateView
 
 urlpatterns = [
+    path('api/blog/', include('blog.urls')),
+    path('api/category/', include('category.urls')),
     path('admin/', admin.site.urls),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
