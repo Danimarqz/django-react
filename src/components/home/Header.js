@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { useTypewriter, Cursor } from "react-simple-typewriter";
-import bg from "assets/img/bg_header.jpg"
 
 function Header() {
   const TypewriterHook = () => {
@@ -77,7 +76,7 @@ function Header() {
               </ul>
             </div>
             <div className="absolute inset-x-0 top-[calc(100%-20rem)] -z-10 transform-gpu overflow-hidden bg-white blur-xs lg:top-[calc(100%-45rem)] sm:top-[calc(100%-30rem)]">
-              <img src={bg} className='w-full h-full object-cover'/>
+              <img src='https://bafybeiaggoj67rzqusmh2g375vmrr444l4pvvnr6ta6bla57i33i36l2ua.ipfs.w3s.link/bg_header.jpg' alt='background' className='w-full h-full object-cover'/>
             </div>
           </div>
         </div>

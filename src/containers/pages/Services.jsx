@@ -3,15 +3,15 @@ import Navbar from "components/navigation/Navbar";
 import Header from "components/services/Header";
 import ServicesList from "components/services/ServicesList";
 import Layout from "hocs/layouts/Layout";
-import programming_img from 'assets/img/services/programming.png'
 import { useEffect } from "react";
+import { Helmet } from "react-helmet-async";
 
 
 const posts_software = [
     {
       title: 'Boost your conversion rate',
       index:3,
-      img: programming_img,
+      img: 'https://bafybeifsjiw5g5a6qktxxahekv5rvgf4xczjr5fz6gtmcv3jkdq5277iv4.ipfs.w3s.link/programming.png',
       href: '#',
       category: { name: 'Article', href: '#' },
       description:
@@ -31,7 +31,7 @@ const posts_software = [
     {
       title: 'How to use search engine optimization to drive sales',
       index:4,
-      img: programming_img,
+      img: 'https://bafybeifsjiw5g5a6qktxxahekv5rvgf4xczjr5fz6gtmcv3jkdq5277iv4.ipfs.w3s.link/programming.png',
       href: '#',
       category: { name: 'Video', href: '#' },
       description:
@@ -51,7 +51,7 @@ const posts_software = [
     {
       title: 'Improve your customer experience',
       index:5,
-      img: programming_img,
+      img: 'https://bafybeifsjiw5g5a6qktxxahekv5rvgf4xczjr5fz6gtmcv3jkdq5277iv4.ipfs.w3s.link/programming.png',
       href: '#',
       category: { name: 'Case Study', href: '#' },
       description:
@@ -74,7 +74,7 @@ const posts_design = [
     {
       title: 'Boost your conversion rate',
       index: 0,
-      img: programming_img,
+      img: 'https://bafybeifsjiw5g5a6qktxxahekv5rvgf4xczjr5fz6gtmcv3jkdq5277iv4.ipfs.w3s.link/programming.png',
       href: '#',
       category: { name: 'Article', href: '#' },
       description:
@@ -94,7 +94,7 @@ const posts_design = [
     {
       title: 'How to use search engine optimization to drive sales',
       index: 1,
-      img: programming_img,
+      img: 'https://bafybeifsjiw5g5a6qktxxahekv5rvgf4xczjr5fz6gtmcv3jkdq5277iv4.ipfs.w3s.link/programming.png',
       href: '#',
       category: { name: 'Video', href: '#' },
       description:
@@ -114,7 +114,7 @@ const posts_design = [
     {
       title: 'Improve your customer experience',
       index: 2,
-      img: programming_img,
+      img: 'https://bafybeifsjiw5g5a6qktxxahekv5rvgf4xczjr5fz6gtmcv3jkdq5277iv4.ipfs.w3s.link/programming.png',
       href: '#',
       category: { name: 'Case Study', href: '#' },
       description:
@@ -139,6 +139,24 @@ function Services(){
     },[])
     return (
         <Layout>
+            <Helmet>
+                <title>DMS | Services</title>
+                <meta name="description" content="Agencia de software y marketing digital. Servicios de creación de páginas web y desarrollo de aplicaciones." />
+                <meta name="keywords" content="DaniMarqz, DaniMarqz Systems, Software, Marketing, Digital, Web, Web Design, Web Development, Software Development, Software Development Company"/>
+                <meta name="robots" content="all" />
+                <link rel="canonical" href="https://www.danimarqz.com/" />
+                <meta name="author" content="Daniel Marquez" />
+                <meta name="publisher" content="Daniel Marquez" />
+
+                <meta property="og:title" content="DaniMarqz Systems" />
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content="https://www.danimarqz.com/" />
+                <meta property="og:image" content="https://bafybeifdiqwohyxxd54kquaynlguzernofxi64fltcabpwpxhrzvoscywy.ipfs.w3s.link/ipfs/bafybeifdiqwohyxxd54kquaynlguzernofxi64fltcabpwpxhrzvoscywy/DaniMarqz%20white.png" />
+                <meta name="twitter:title" content="DaniMarqz Systems" />
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:image" content="https://bafybeifdiqwohyxxd54kquaynlguzernofxi64fltcabpwpxhrzvoscywy.ipfs.w3s.link/ipfs/bafybeifdiqwohy"/>
+                <meta name="twitter:site" content="@dani_marqz_33" />
+            </Helmet>
             <Navbar />
             <div className="pt-28">
                 <Header />

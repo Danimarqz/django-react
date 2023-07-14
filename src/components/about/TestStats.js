@@ -1,4 +1,3 @@
-import logo from "assets/img/DaniMarqz dark.png";
 
 const stats = [
   { label: "Founded", value: "2025" },
@@ -62,7 +61,7 @@ export default function TestStats() {
               <div className="absolute inset-0 bg-gradient-to-t from-orange-200 via-orange-button opacity-50" />
               <div className="relative px-8">
                 <div>
-                  <img className="h-12" src={logo} alt="DaniMarqz Systems" />
+                  <img className="h-12" src='https://bafybeiekozakwmcuzbhbj2w5szori34cxugid6cxml5clwy2bg7unufhma.ipfs.w3s.link/ipfs/bafybeiekozakwmcuzbhbj2w5szori34cxugid6cxml5clwy2bg7unufhma/DaniMarqz%20dark.png' alt="DaniMarqz Systems" />
                 </div>
                 <blockquote className="mt-8">
                   <div className="relative text-lg font-medium text-white md:flex-grow">

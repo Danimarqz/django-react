@@ -1,6 +1,4 @@
 import { connect } from 'react-redux'
-import logo_dm_white from 'assets/img/DaniMarqz white.png'
-import logo_dm_dark from 'assets/img/DaniMarqz dark.png'
 
 
 const navigation = {
@@ -74,7 +72,7 @@ function Footer(){
         <div className="mx-auto max-w-full py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
           <div className="xl:grid xl:grid-cols-3 xl:gap-8">
             <div className="space-y-8 xl:col-span-1">
-               <img src={logo_dm_white}
+               <img src='https://bafybeifdiqwohyxxd54kquaynlguzernofxi64fltcabpwpxhrzvoscywy.ipfs.w3s.link/ipfs/bafybeifdiqwohyxxd54kquaynlguzernofxi64fltcabpwpxhrzvoscywy/DaniMarqz%20white.png'
                     alt="logo"
                     width={80}
                     height={70}

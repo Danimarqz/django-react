@@ -8,6 +8,7 @@ import Navbar from "components/navigation/Navbar";
 import Layout from "hocs/layouts/Layout";
 import { useEffect } from "react";
 import Team from "components/about/Team";
+import { Helmet } from "react-helmet-async";
 
 function About() {
     useEffect(() => {
@@ -15,6 +16,24 @@ function About() {
     }, [])
     return (
         <Layout>
+            <Helmet>
+                <title>DMS | About</title>
+                <meta name="description" content="Agencia de software y marketing digital. Servicios de creación de páginas web y desarrollo de aplicaciones." />
+                <meta name="keywords" content="DaniMarqz, DaniMarqz Systems, Software, Marketing, Digital, Web, Web Design, Web Development, Software Development, Software Development Company"/>
+                <meta name="robots" content="all" />
+                <link rel="canonical" href="https://www.danimarqz.com/" />
+                <meta name="author" content="Daniel Marquez" />
+                <meta name="publisher" content="Daniel Marquez" />
+
+                <meta property="og:title" content="DaniMarqz Systems" />
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content="https://www.danimarqz.com/" />
+                <meta property="og:image" content="https://bafybeifdiqwohyxxd54kquaynlguzernofxi64fltcabpwpxhrzvoscywy.ipfs.w3s.link/ipfs/bafybeifdiqwohyxxd54kquaynlguzernofxi64fltcabpwpxhrzvoscywy/DaniMarqz%20white.png" />
+                <meta name="twitter:title" content="DaniMarqz Systems" />
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:image" content="https://bafybeifdiqwohyxxd54kquaynlguzernofxi64fltcabpwpxhrzvoscywy.ipfs.w3s.link/ipfs/bafybeifdiqwohy"/>
+                <meta name="twitter:site" content="@dani_marqz_33" />
+            </Helmet>
             <Navbar />
             <div className="pt-28">
                 <Header />
