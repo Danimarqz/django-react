@@ -2,15 +2,62 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework import permissions
-from .models import Post
+
+from .models import Post, ViewCount
 from apps.category.models import Category
-from .serializers import PostSerializer
+
+from .serializers import PostSerializer, PostListSerializer
+from .pagination import SmallSetPagination, MediumSetPagination, LargeSetPagination
+
+from django.db.models.query_utils import Q
+
 
 class BlogListView(APIView):
     permission_classes = (permissions.AllowAny,)
     def get(self, request, format=None):
-        if Post.objects.all().exists():
-                return Response({'posts': ''}, status=status.HTTP_200_OK)
+        if Post.postobjects.all().exists():
+
+            posts = Post.postobjects.all()
+
+            paginator = SmallSetPagination()
+            results = paginator.paginate_queryset(posts, request)
+            serializer = PostListSerializer(results, many=True)
+
+            return paginator.get_paginated_response({'posts': serializer.data})
         else:
-                return Response({'Not found'}, status=status.HTTP_404_NOT_FOUND)
-             
+            return Response({'error':'No posts found'}, status=status.HTTP_404_NOT_FOUND)
+
+
+class ListPostsByCategoryView(APIView):
+    permission_classes = (permissions.AllowAny,)
+    def get(self, request, format=None):
+        if Post.postobjects.all().exists():
+
+            slug = request.query_params.get('slug')
+            category = Category.objects.get(slug=slug)
+            
+            posts = Post.postobjects.order_by('-published').all()
+
+            #Filtrar categoria sola
+            if not Category.objects.filter(parent=category).exists():
+                posts = posts.filter(category=category)
+            # Si esta categoría padre tiene hijos, filtrar por la categoría padre y sus hijos
+            else:
+                sub_categories = Category.objects.filter(parent=category)
+                
+                filtered_categories = [category]
+
+                for cat in sub_categories:
+                    filtered_categories.append(cat)
+
+                filtered_categories = tuple(filtered_categories)
+
+                posts = posts.filter(category__in=filtered_categories)
+                    
+            paginator = SmallSetPagination()
+            results = paginator.paginate_queryset(posts, request)
+            serializer = PostListSerializer(results, many=True)
+
+            return paginator.get_paginated_response({'posts': serializer.data})
+        else:
+            return Response({'error':'No posts found'}, status=status.HTTP_404_NOT_FOUND)
