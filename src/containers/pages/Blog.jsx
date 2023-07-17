@@ -6,6 +6,7 @@ import { Helmet } from "react-helmet-async";
 import { get_categories } from "redux/actions/categories/categories";
 import { connect } from "react-redux";
 import { get_blog_list, get_blog_list_page } from "redux/actions/blog/blog";
+import CategoriesHeader from "components/blog/CategoriesHeader";
 
 function Blog({
     get_categories, 
@@ -44,8 +45,8 @@ function Blog({
                 <meta name="twitter:site" content="@dani_marqz_33" />
             </Helmet>
             <Navbar />
-            <div className="pt-28">
-                Blog
+            <div className="pt-24">
+                <CategoriesHeader categories={categories && categories} />
             </div>
             <Footer />
         </Layout>
