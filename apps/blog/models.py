@@ -30,6 +30,9 @@ class Post(models.Model):
     status =        models.CharField(max_length=10, choices=options, default='draft')
 
     category =      models.ForeignKey(Category, on_delete=models.PROTECT)
+
+    objects =       models.Manager()
+    postobjects =   PostObjects()
     
     class Meta:
         ordering = ('-published',)

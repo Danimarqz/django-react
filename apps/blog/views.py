@@ -66,8 +66,8 @@ class ListPostsByCategoryView(APIView):
 class PostDetailView(APIView):
     permission_classes = (permissions.AllowAny,)
     def get(self, request, slug, format=None):
-        if Post.objects.filter(slug=slug).exists():
-            post = Post.objects.get(slug=slug)
+        if Post.postobjects.filter(slug=slug).exists():
+            post = Post.postobjects.get(slug=slug)
             serializer = PostSerializer(post)
 
             address = request.META.get('HTTP_X_FORWARDED_FOR')
@@ -90,9 +90,12 @@ class SearchBlogView(APIView):
     permission_classes = (permissions.AllowAny,)
     def get(self,request,format=None):
         s = request.query_params.get('s')
-        matches = Post.objects.filter(Q(title__icontains=s) |
+        matches = Post.postobjects.filter(Q(title__icontains=s) |
                                        Q(description__icontains=s) |
                                          Q(category__name__icontains=s)
                                          )
-        serializer = PostListSerializer(matches, many=True)
-        return Response({'posts':serializer.data}, status=status.HTTP_200_OK)
+        
+        paginator = LargeSetPagination()
+        results = paginator.paginate_queryset(matches, request)
+        serializer = PostListSerializer(results, many=True)
+        return paginator.get_paginated_response({'filtered_posts': serializer.data})
