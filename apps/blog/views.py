@@ -64,6 +64,7 @@ class ListPostsByCategoryView(APIView):
         
 
 class PostDetailView(APIView):
+    permission_classes = (permissions.AllowAny,)
     def get(self, request, slug, format=None):
         if Post.objects.filter(slug=slug).exists():
             post = Post.objects.get(slug=slug)
@@ -86,11 +87,12 @@ class PostDetailView(APIView):
             return Response({'error':'Post not found'}, status=status.HTTP_404_NOT_FOUND)
         
 class SearchBlogView(APIView):
+    permission_classes = (permissions.AllowAny,)
     def get(self,request,format=None):
-        search_term = request.query_params.get('search_term')
-        matches = Post.objects.filter(Q(title__icontains=search_term) |
-                                       Q(description__icontains=search_term) |
-                                         Q(category__name__icontains=search_term)
+        s = request.query_params.get('s')
+        matches = Post.objects.filter(Q(title__icontains=s) |
+                                       Q(description__icontains=s) |
+                                         Q(category__name__icontains=s)
                                          )
         serializer = PostListSerializer(matches, many=True)
         return Response({'posts':serializer.data}, status=status.HTTP_200_OK)
