@@ -78,8 +78,19 @@ class PostDetailView(APIView):
             if not ViewCount.objects.filter(post=post, ip_adress=ip).exists():
                 view = ViewCount(post=post, ip_adress=ip)
                 view.save()
+                post.views += 1
+                post.save()
 
             return Response({'post':serializer.data}, status=status.HTTP_200_OK)
         else:
             return Response({'error':'Post not found'}, status=status.HTTP_404_NOT_FOUND)
         
+class SearchBlogView(APIView):
+    def get(self,request,format=None):
+        search_term = request.query_params.get('search_term')
+        matches = Post.objects.filter(Q(title__icontains=search_term) |
+                                       Q(description__icontains=search_term) |
+                                         Q(category__name__icontains=search_term)
+                                         )
+        serializer = PostListSerializer(matches, many=True)
+        return Response({'posts':serializer.data}, status=status.HTTP_200_OK)
