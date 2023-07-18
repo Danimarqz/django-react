@@ -2,7 +2,7 @@ import axios from 'axios';
 import {
     GET_CATEGORIES_SUCCESS,
     GET_CATEGORIES_FAIL,
-} from './types '
+} from './types'
 
 export const get_categories = () => async dispatch => {
     const config = {
