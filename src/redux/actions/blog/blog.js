@@ -145,7 +145,7 @@ export const get_blog = (slug) => async (dispatch) => {
         });
     }
 }
-export const get_search_blog = (search) => async (dispatch) => {
+export const search_blog = (search) => async (dispatch) => {
     const config = {
         headers: {
             'Accept': 'application/json',
@@ -172,7 +172,7 @@ export const get_search_blog = (search) => async (dispatch) => {
         });
     }
 }
-export const get_search_blog_page = (search,page) => async (dispatch) => {
+export const search_blog_page = (search,page) => async (dispatch) => {
     const config = {
         headers: {
             'Accept': 'application/json',

@@ -27,7 +27,6 @@ export default function CategoriesHeader({categories}){
                     <div className="relative">
                             <div className="relative -mb-6 w-full overflow-x-auto pb-6">
                                 <ul
-                                    role="list"
                                 
                                     className="mx-4 inline-flex space-x-6 sm:mx-6 "
                                 >
@@ -51,7 +50,8 @@ export default function CategoriesHeader({categories}){
                 </div>
                 <form onSubmit={(e) => onSubmit(e)} className="relative col-span-3 mr-8">
                     <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-                        <i className='bx bx-search-alt text-xl text-gray-800'></i>
+                        {/* Magnifying glass icon */}
+                        <i className='bx bx-search-alt text-xl text-gray-800'></i> 
                     </div>
                     <input
                         id='search'
@@ -59,6 +59,7 @@ export default function CategoriesHeader({categories}){
                         value={term}
                         onChange={(e)=>handleChange(e)}
                         type='search'
+                        placeholder="Search here"
                         className={`
                             py-2.5 pl-10 pr-3 
                             block w-full rounded-md

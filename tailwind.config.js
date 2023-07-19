@@ -14,6 +14,7 @@ module.exports = {
     },
     boxShadow: {
       navbar: "0px 10px 8px 0px rgba(3, 3, 4, 0.03), 0 1px 2px -1px rgba(3, 3, 4, 0.03)",
+      "2xl": "0 0px 40px 0px rbga(0,0,0, 0.1)"
     },
     screens: {
         sm: "640px",

@@ -8,6 +8,8 @@ import Contact from "containers/pages/Contact";
 import Error404 from "containers/errors/Error404";
 import Home from "containers/pages/Home";
 import { AnimatePresence } from 'framer-motion';
+import Category from 'containers/pages/Category';
+import Search from 'containers/pages/Search';
 
 export default function AnimatedRoutes(){
     const location = useLocation();
@@ -21,6 +23,8 @@ export default function AnimatedRoutes(){
             <Route path="/about" element={<About />} />
             <Route path="/careers" element={<Careers />} />
             <Route path="/blog" element={<Blog />} />
+            <Route path="/s=:term" element={<Search />} />
+            <Route path="/category/:slug" element={<Category />} />
             <Route path="/contact" element={<Contact />} />
         </Routes>
     </AnimatePresence>

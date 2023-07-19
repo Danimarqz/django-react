@@ -5,31 +5,34 @@ import { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import { get_categories } from "redux/actions/categories/categories";
 import { connect } from "react-redux";
-import { get_blog_list, get_blog_list_page } from "redux/actions/blog/blog";
+import { get_blog_list_category, get_blog_list_page } from "redux/actions/blog/blog";
 import CategoriesHeader from "components/blog/CategoriesHeader";
-import BlogList from "components/blog/BlogList";
-import BlogCardHorizontal from "components/blog/BlogCardHorizontal";
+import { useParams } from "react-router-dom";
 
-function Blog({
+function Category({
     get_categories, 
     categories,
-    get_blog_list,
-    get_blog_list_page,
+    get_blog_list_category,
+    get_blog_list_category_page,
     posts,
     count,
     next,
     previous,
 }){
+
+    const params = useParams()
+    const slug = params.slug
+
     useEffect(() =>{
         window.scrollTo(0,0)
         get_categories()
-        get_blog_list()
-        get_blog_list_page()
+        get_blog_list_category(slug)
+
     },[])
     return (
         <Layout>
             <Helmet>
-                <title>DMS | Blog</title>
+                <title>DMS | Category: {slug}</title>
                 <meta name="description" content="Agencia de software y marketing digital. Servicios de creación de páginas web y desarrollo de aplicaciones." />
                 <meta name="keywords" content="DaniMarqz, DaniMarqz Systems, Software, Marketing, Digital, Web, Web Design, Web Development, Software Development, Software Development Company"/>
                 <meta name="robots" content="all" />
@@ -49,11 +52,6 @@ function Blog({
             <Navbar />
             <div className="pt-24">
                 <CategoriesHeader categories={categories && categories} />
-                <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                    <div className="mx-auto max-w-5xl">
-                        <BlogList posts={posts&&posts}/>
-                    </div>
-                </div> 
             </div>
             <Footer />
         </Layout>
@@ -61,7 +59,7 @@ function Blog({
 }
 const mapStateToProps = state => ({
     categories: state.categories.categories,
-    posts: state.blog.blog_list,
+    posts: state.blog.blog_list_category,
     count: state.blog.count,
     next: state.blog.next,
     previous: state.blog.previous,
@@ -69,6 +67,6 @@ const mapStateToProps = state => ({
 })
 export default connect(mapStateToProps, {
     get_categories,
-    get_blog_list,
+    get_blog_list_category,
     get_blog_list_page,
-}) (Blog)
+}) (Category)
