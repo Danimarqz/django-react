@@ -1,4 +1,4 @@
-function Testimonial(){
+export default function Testimonial(){
     return(
         <div className="bg-white pt-16 lg:py-24">
       <div className="bg-gray-50 pb-16 lg:relative lg:z-10 lg:pb-0">
@@ -44,4 +44,3 @@ function Testimonial(){
     </div>
     )
 }
-export default Testimonial

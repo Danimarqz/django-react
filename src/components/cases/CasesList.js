@@ -67,7 +67,7 @@ const breakPoints = [
   { width: 1400, itemsToShow: 3, itemsToScroll:2 },
 ]
 
-function CasesList(){
+export default function CasesList(){
     return(
         <div className="relative px-4 pt-16 pb-20 sm:px-6 lg:px-8 lg:pb-28">
         <div className="absolute inset-0">
@@ -89,5 +89,3 @@ function CasesList(){
       </div>
     )
 }
-
-export default CasesList;

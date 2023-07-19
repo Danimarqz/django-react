@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useTypewriter, Cursor } from "react-simple-typewriter";
 
-function Header() {
+export default function Header() {
   const TypewriterHook = () => {
     const [text] = useTypewriter({
       words: ["Code", "Eat", "Sleep", "Repeat!"],
@@ -84,5 +84,3 @@ function Header() {
     </main>
   );
 }
-
-export default Header;

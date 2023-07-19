@@ -5,7 +5,7 @@ import { Helmet, HelmetProvider } from "react-helmet-async";
 import AnimatedRoutes from "AnimatedRoutes";
 
 
-function App() {
+export default function App() {
 
   return (
     <HelmetProvider>
@@ -36,5 +36,3 @@ function App() {
 
   );
 }
-
-export default App;

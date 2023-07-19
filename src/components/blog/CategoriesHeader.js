@@ -1,8 +1,7 @@
-import { MagnifyingGlassIcon } from "@heroicons/react/24/outline"
 import { Link, useLocation, useNavigate } from "react-router-dom"
 import {useState}from 'react'
 
-function CategoriesHeader({categories}){
+export default function CategoriesHeader({categories}){
 
     const location = useLocation()
     const navigate = useNavigate()
@@ -74,4 +73,3 @@ function CategoriesHeader({categories}){
         </div>
     )
 }
-export default CategoriesHeader

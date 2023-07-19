@@ -1,9 +1,6 @@
 import ServicesCard from "./ServicesCard";
 
-
-
-
-function ServicesList ({posts, section_title}) {
+export default function ServicesList ({posts, section_title}) {
     return (
         <>
               <div className="relative bg-gray-50 px-4 pb-20 sm:px-6 lg:px-8 lg:pb-28">
@@ -24,4 +21,3 @@ function ServicesList ({posts, section_title}) {
         </>
     )
 }
-export default ServicesList;

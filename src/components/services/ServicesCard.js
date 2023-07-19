@@ -1,6 +1,4 @@
-
-
-function ServicesCard ({data}) {
+export default function ServicesCard ({data}) {
     return (
     
         <div 
@@ -28,5 +26,3 @@ function ServicesCard ({data}) {
         </div>
     )
 }
-
-export default ServicesCard

@@ -1,6 +1,4 @@
-
-
-function Header() {
+export default function Header() {
   return (
     <main>
       <div className="relative px-6 lg:px-8">
@@ -28,5 +26,3 @@ function Header() {
     </main>
   );
 }
-
-export default Header;

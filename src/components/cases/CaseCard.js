@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 
 
-function CaseCard({data, index}){
+export default function CaseCard({data, index}){
     return (
         <Link to='/cases/id'
         onMouseEnter={() =>{
@@ -37,5 +37,3 @@ function CaseCard({data, index}){
               </Link>
     )
 }
-
-export default CaseCard;

@@ -1,5 +1,4 @@
-
-function Images() {
+export default function Images() {
   return (
     <div className="w-full">
       <div className="grid grid-cols-2 gap-8">
@@ -17,4 +16,3 @@ function Images() {
     </div>
   );
 }
-export default Images;
