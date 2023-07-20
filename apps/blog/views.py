@@ -38,6 +38,13 @@ class ListPostsByCategoryView(APIView):
             
             posts = Post.postobjects.order_by('-published').all()
 
+        # # Si la categoría tiene un padre, filtrar sólo por esta categoría y no por el padre también
+        # if category.parent:
+        #     posts = posts.filter(category=category)
+
+        # # Si la categoría no tiene una categoría padre, significa que ella misma es una categoría padre
+        # else: 
+
             #Filtrar categoria sola
             if not Category.objects.filter(parent=category).exists():
                 posts = posts.filter(category=category)
@@ -61,12 +68,13 @@ class ListPostsByCategoryView(APIView):
             return paginator.get_paginated_response({'posts': serializer.data})
         else:
             return Response({'error':'No posts found'}, status=status.HTTP_404_NOT_FOUND)
-        
+
 
 class PostDetailView(APIView):
     permission_classes = (permissions.AllowAny,)
     def get(self, request, slug, format=None):
         if Post.postobjects.filter(slug=slug).exists():
+            
             post = Post.postobjects.get(slug=slug)
             serializer = PostSerializer(post)
 
@@ -76,28 +84,30 @@ class PostDetailView(APIView):
             else:
                 ip = request.META.get('REMOTE_ADDR')
 
-            if not ViewCount.objects.filter(post=post, ip_adress=ip).exists():
-                view = ViewCount(post=post, ip_adress=ip)
+            if not ViewCount.objects.filter(post=post, ip_address=ip):
+                view = ViewCount(post=post,ip_address=ip)
                 view.save()
                 post.views += 1
                 post.save()
 
             return Response({'post':serializer.data}, status=status.HTTP_200_OK)
         else:
-            return Response({'error':'Post not found'}, status=status.HTTP_404_NOT_FOUND)
-        
+            return Response({'error':'Post doesnt exist'}, status=status.HTTP_404_NOT_FOUND)
+
+
 class SearchBlogView(APIView):
     permission_classes = (permissions.AllowAny,)
-    def get(self,request,format=None):
-        s = request.query_params.get('s')
+    def get(self,request, format=None):
+        search_term = request.query_params.get('s')
         matches = Post.postobjects.filter(
-                        Q(title__icontains=s) |
-                        Q(description__icontains=s) |
-                        Q(content__icontaints=s) |
-                        Q(category__name__icontains=s)
-                    )
-        
-        paginator = LargeSetPagination()
+            Q(title__icontains=search_term) |
+            Q(description__icontains=search_term) |
+            Q(content__icontains=search_term) |
+            Q(category__name__icontains=search_term)
+        )
+
+        paginator = SmallSetPagination()
         results = paginator.paginate_queryset(matches, request)
+
         serializer = PostListSerializer(results, many=True)
         return paginator.get_paginated_response({'filtered_posts': serializer.data})

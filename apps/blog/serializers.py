@@ -1,14 +1,12 @@
 from rest_framework import serializers
-
-from apps.category.serializers import CategorySerializer
 from .models import *
-
+from apps.category.serializers import CategorySerializer
 
 class PostSerializer(serializers.ModelSerializer):
-    category = CategorySerializer(read_only=True)
-    class Meta:
-        model = Post
-        fields = [
+    category=CategorySerializer()
+    class Meta: 
+        model=Post
+        fields=[
             'id',
             'title',
             'slug',
@@ -20,12 +18,12 @@ class PostSerializer(serializers.ModelSerializer):
             'views',
             'category'
         ]
-        
+
 class PostListSerializer(serializers.ModelSerializer):
-    category = CategorySerializer(read_only=True)
-    class Meta:
-        model = Post
-        fields = [
+    category=CategorySerializer()
+    class Meta: 
+        model=Post
+        fields=[
             'id',
             'title',
             'slug',

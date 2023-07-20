@@ -1,21 +1,23 @@
 import { Link } from "react-router-dom"
+import {useEffect}from'react'
 
-import moment from 'moment' //date formating
-export default function BlogCardHorizontal({data,index}){
+import moment from 'moment'
+function BlogCardHorizontal({data,index}){
 
     
     return(
-        <li>
+        <li 
+        >
             <Link to={`/blog/${data.slug}`}
                 onMouseEnter={()=>{
-                    const img = document.getElementById(index)
-                    img.classList.add('object-fill')
+                    // const img = document.getElementById(index)
+                    // img.classList.add('object-fill')
                     const title = document.getElementById(`title`+data.id)
                     title.classList.add('text-orange-500')
                 }} 
                 onMouseLeave={()=>{
-                    const img = document.getElementById(index)
-                    img.classList.remove('object-fill')
+                    // const img = document.getElementById(index)
+                    // img.classList.remove('object-fill')
                     const title = document.getElementById(`title`+data.id)
                     title.classList.remove('text-orange-500')
                 }}
@@ -41,3 +43,4 @@ export default function BlogCardHorizontal({data,index}){
           </li>
     )
 }
+export default BlogCardHorizontal
