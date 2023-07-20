@@ -20,7 +20,7 @@ export default function Testimonial(){
               <blockquote>
                 <div>
                   <svg
-                    className="h-12 w-12 text-black opacity-25"
+                    className="h-12 w-12 text-green-600 opacity-25"
                     fill="currentColor"
                     viewBox="0 0 32 32"
                     aria-hidden="true"
@@ -34,7 +34,7 @@ export default function Testimonial(){
                 </div>
                 <footer className="mt-6">
                   <p className="text-base font-medium text-black">Judith Black</p>
-                  <p className="text-base font-medium text-gray-700">CEO at PureInsights</p>
+                  <p className="text-base font-medium text-green-700">CEO at PureInsights</p>
                 </footer>
               </blockquote>
             </div>
