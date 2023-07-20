@@ -180,7 +180,7 @@ export const search_blog_page = (search,page) => async (dispatch) => {
     };
 
     try{
-        const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/blog/search?s=${search}&p=${page}`, config)
+        const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/blog/search?p=${page}&s=${search}`, config)
 
         if(res.status === 200){
             dispatch({

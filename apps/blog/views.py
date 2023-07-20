@@ -90,10 +90,12 @@ class SearchBlogView(APIView):
     permission_classes = (permissions.AllowAny,)
     def get(self,request,format=None):
         s = request.query_params.get('s')
-        matches = Post.postobjects.filter(Q(title__icontains=s) |
-                                       Q(description__icontains=s) |
-                                         Q(category__name__icontains=s)
-                                         )
+        matches = Post.postobjects.filter(
+                        Q(title__icontains=s) |
+                        Q(description__icontains=s) |
+                        Q(content__icontaints=s) |
+                        Q(category__name__icontains=s)
+                    )
         
         paginator = LargeSetPagination()
         results = paginator.paginate_queryset(matches, request)
