@@ -1,12 +1,11 @@
 import { Link } from "react-router-dom"
 
-import moment from 'moment' //data formating
+import moment from 'moment' //date formating
 export default function BlogCardHorizontal({data,index}){
 
     
     return(
-        <li 
-        >
+        <li>
             <Link to={`/blog/${data.slug}`}
                 onMouseEnter={()=>{
                     const img = document.getElementById(index)

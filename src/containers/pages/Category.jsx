@@ -8,6 +8,7 @@ import { connect } from "react-redux";
 import { get_blog_list_category, get_blog_list_page } from "redux/actions/blog/blog";
 import CategoriesHeader from "components/blog/CategoriesHeader";
 import { useParams } from "react-router-dom";
+import BlogList from "components/blog/BlogList";
 
 function Category({
     get_categories, 
@@ -52,6 +53,11 @@ function Category({
             <Navbar />
             <div className="pt-24">
                 <CategoriesHeader categories={categories && categories} />
+                <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                    <div className="mx-auto max-w-5xl">
+                        <BlogList posts={posts&&posts} get_blog_list_page={get_blog_list_category_page} count={count&&count}/>
+                    </div>
+                </div> 
             </div>
             <Footer />
         </Layout>
