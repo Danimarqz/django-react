@@ -4,6 +4,8 @@ import {
     GET_CATEGORIES_FAIL,
 } from './types'
 
+//change this to new redux or no redux
+
 export const get_categories = () => async dispatch => {
     const config = {
         headers: {

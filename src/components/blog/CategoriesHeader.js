@@ -6,7 +6,7 @@ function CategoriesHeader({ categories }) {
   const location = useLocation();
   const navigate = useNavigate();
 
-  // SEARCH
+  // SEARCH still not working properly
   const [term, setTerm] = useState("");
   const handleChange = (e) => {
     setTerm(e.target.value);
