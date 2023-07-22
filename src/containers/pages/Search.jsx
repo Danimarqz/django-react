@@ -44,15 +44,17 @@ function Search({
                 <meta name="twitter:image" content="https://bafybeifdiqwohyxxd54kquaynlguzernofxi64fltcabpwpxhrzvoscywy.ipfs.w3s.link/ipfs/bafybeifdiqwohy"/>
                 <meta name="twitter:site" content="@dani_marqz_33" />
             </Helmet>
-            <Navbar />
+            <Navbar/>
             <div className="pt-24">
-            <div className="mx-auto max-w-full px-4 sm:px-6 lg:px-8">
-                    <div className="mx-auto max-w-full">
-                        <BlogList posts={posts&&posts} get_blog_list_page={search_blog_page} term={term} count={count&&count}/>
+                <div className="mx-auto max-w-full px-4 sm:px-6 lg:px-8">
+                {/* We've used 3xl here, but feel free to try other max-widths based on your needs */}
+                <div className="mx-auto max-w-full my-10">
+                    {/* Content goes here */}
+                    <BlogList posts={posts&&posts} get_blog_list_page={search_blog_page} term={term} count={count&&count}/>
                     </div>
-                </div> 
+                </div>
             </div>
-            <Footer />
+                <Footer/>
         </Layout>
     )
 }
