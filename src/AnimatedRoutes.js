@@ -17,7 +17,7 @@ export default function AnimatedRoutes(){
     return(
     <AnimatePresence>
         <Routes location={location} key={location.pathname}>
-            <Route path="*" element={<Error404 />} />
+            
             <Route path="/" element={<Home />} />
             <Route path="/cases" element={<Cases />} />
             <Route path="/services" element={<Services />} />
@@ -25,9 +25,10 @@ export default function AnimatedRoutes(){
             <Route path="/careers" element={<Careers />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<PostDetail />} />
-            <Route path="/s=:term" element={<Search />} />
+            <Route path="/s/:term" element={<Search />} />
             <Route path="/category/:slug" element={<Category />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="*" element={<Error404 />} />
         </Routes>
     </AnimatePresence>
     )

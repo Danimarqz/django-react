@@ -13,7 +13,7 @@ function CategoriesHeader({ categories }) {
   };
   const onSubmit = (e) => {
     e.preventDefault();
-    navigate("/s=" + term);
+    navigate("/s/" + term);
     setTerm("");
   };
 
