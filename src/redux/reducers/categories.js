@@ -2,26 +2,25 @@ import {
     GET_CATEGORIES_FAIL,
     GET_CATEGORIES_SUCCESS
 } from '../actions/categories/types'
+import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
     categories: null
 }
 
-export default function categories(state=initialState, action){
-    const { type, payload } = action;
-
-    switch(type){
-        case GET_CATEGORIES_SUCCESS:
-            return {
-                ...state,
-                categories: payload.categories
-            }
-        case GET_CATEGORIES_FAIL:
-            return {
-                ...state,
-                categories: null
-            }
-        default:
-            return state
+const categoriesSlice = createSlice({
+    name: 'categories',
+    initialState,
+    reducers: {
+        GET_CATEGORIES_SUCCESS: (state, action) => {
+            state.categories = action.payload
+        },
+        GET_CATEGORIES_FAIL: (state, action) => {
+            state.categories = null
+        }
     }
-}
+})
+
+export const { GET_CATEGORIES_SUCCESS, GET_CATEGORIES_FAIL } = categoriesSlice.actions
+
+export default categoriesSlice.reducer
