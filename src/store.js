@@ -1,15 +1,15 @@
-import { configureStore } from 'redux';
-import thunk from 'redux-thunk';
-import rootReducer from './redux/reducers'
+import { configureStore} from '@reduxjs/toolkit';
+import blogReducer from './redux/reducers/blog';
+import categoriesReducer from './redux/reducers/categories';
 
 const initialState = {};
 
-const middleware = [thunk];
 
-const store = configureStore(
-    rootReducer,
-    initialState,
-    
-);
+const store = configureStore({
+    reducer: {
+        blog: blogReducer,
+        categories: categoriesReducer,
+    },
+});
 
 export default store;
